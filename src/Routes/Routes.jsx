@@ -10,6 +10,8 @@ import MyGroups from '../Pages/MyGroups';
 import Login from '../Components/Login';
 import Signup from '../Components/Signup';
 import PrivateRoute from "../ContextProvider/PrivateRoute";
+import Spinner from "../Components/Spinner";
+import GroupDetails from "../Pages/GroupDetails";
 
 export const router = createBrowserRouter([
   {
@@ -22,7 +24,15 @@ export const router = createBrowserRouter([
         },
         {
             path:'/all-groups',
+            hydrateFallbackElement: <Spinner></Spinner>,
+            loader: ()=> fetch('http://localhost:3000/groups'),
             Component:AllGroup
+        },
+        {
+            path:'/groups/:id',
+            hydrateFallbackElement: <Spinner></Spinner>,
+            loader: ({params})=> fetch(`http://localhost:3000/groups/${params.id}`),
+            Component:GroupDetails
         },
         {
             path:'/create-group',

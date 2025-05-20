@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user?.displayName);
+  // console.log(user?.displayName);
 
   const links = (
     <>
@@ -98,7 +98,7 @@ const Navbar = () => {
               <Link>
                 
                 <img
-                  className="rounded-full cursor-pointer"
+                  className="rounded-full w-[150px] h-[150px] cursor-pointer"
                   src={user.photoURL}
                   alt="User Photo"
                   //data-tip={user.displayName} // Display username on hover
