@@ -12,7 +12,7 @@ const PrivateRoute = ({children}) => {
 
     if(loading) return <Spinner></Spinner>
   if(user && user.email) return children;
-  return <Navigate to='/signin' state={{ from: location }} />;
+  return <Navigate to='/login' state={{ from: location }} />;
 //   return <Navigate state={location.pathname} to='/signin'></Navigate>
 };
 

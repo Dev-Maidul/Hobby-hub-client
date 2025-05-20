@@ -1,6 +1,13 @@
-import { Link, NavLink } from "react-router";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom"; 
+import { AuthContext } from "../ContextProvider/AuthProvider";
+import Swal from "sweetalert2";
+// import ReactTooltip from "react-tooltip"; 
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user?.displayName);
+
   const links = (
     <>
       <li>
@@ -17,7 +24,23 @@ const Navbar = () => {
       </li>
     </>
   );
- 
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Logout Success",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -30,13 +53,12 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
           <ul
@@ -46,23 +68,46 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
+        <Link className="text-xl font-bold" to="/">
+          Hobby-Hub
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end flex gap-2">
-       <Link className="btn btn-active btn-primary" to="/login">
+        {user ? (
+          <button onClick={handleLogout} className="btn btn-active btn-primary">
+            Log Out
+          </button>
+        ) : (
+          <>
+            <Link className="btn btn-active btn-primary" to="/login">
               Login
             </Link>
             <Link className="btn btn-active btn-primary" to="/signup">
               Sign Up
             </Link>
-      
+          </>
+        )}
 
-        <div className="">
-          <div className="avatar avatar-online w-[60px] ">
-           
+     
+        <div className="relative">
+          <div className="avatar avatar-online w-[60px]">
+            {user ? (
+              <Link>
+                
+                <img
+                  className="rounded-full cursor-pointer"
+                  src={user.photoURL}
+                  alt="User Photo"
+                  //data-tip={user.displayName} // Display username on hover
+                />
+              </Link>
+            ) : null}
           </div>
+          {/* ReactTooltip Component */}
+          {/* <ReactTooltip place="top" type="dark" effect="float" />  */}
         </div>
       </div>
     </div>
