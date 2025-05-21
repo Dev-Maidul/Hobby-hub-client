@@ -1,8 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom"; 
 import { AuthContext } from "../ContextProvider/AuthProvider";
 import Swal from "sweetalert2";
-// import ReactTooltip from "react-tooltip"; 
+import { MdDarkMode } from "react-icons/md";
+import { toggleTheme } from "../Scripts/script";
+import { CiLight } from "react-icons/ci";
+import { Tooltip } from 'react-tooltip';
+import { Slide } from "react-awesome-reveal";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -40,9 +44,15 @@ const Navbar = () => {
         console.log(error);
       });
   };
-
+  // handle theme
+  const [dark,setDark]=useState(false);
+  const handleTheme=()=>{
+    setDark(!dark);
+    toggleTheme()
+  }
   return (
-    <div className="navbar bg-base-100">
+    <Slide triggerOnce>
+  <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -76,6 +86,11 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end flex gap-2">
+        <button onClick={handleTheme} className="cursor-pointer">
+          {
+            dark ? <CiLight size={26} />:<MdDarkMode size={26} />
+          }
+</button>
         {user ? (
           <button onClick={handleLogout} className="btn btn-active btn-primary">
             Log Out
@@ -101,16 +116,26 @@ const Navbar = () => {
                   className="rounded-full w-[150px] h-[150px] cursor-pointer"
                   src={user.photoURL}
                   alt="User Photo"
-                  //data-tip={user.displayName} // Display username on hover
+                  data-tooltip-id="user-tooltip"
+                  data-tooltip-content={user?.displayName || 'User'}
+                  
                 />
+                
               </Link>
             ) : null}
           </div>
-          {/* ReactTooltip Component */}
-          {/* <ReactTooltip place="top" type="dark" effect="float" />  */}
+          
         </div>
       </div>
+      <Tooltip 
+        id="user-tooltip"
+        place="bottom"
+        effect="solid"
+        className="z-50"
+      />
     </div>
+</Slide>
+    
   );
 };
 

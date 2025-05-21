@@ -24,8 +24,15 @@ const Login = () => {
         // user sign in
         signIn(email,password).then((result)=>{
             const user=result.user;
+             Swal.fire({
+                      position: "top-end",
+                      icon: "success",
+                      title: "Login Success",
+                      showConfirmButton: false,
+                      timer: 1500,
+                    });
             navigate(from, { replace: true });  
-            // navigate(`${location.state ? location.state: "/"}`)
+            
             console.log(user);
         }).catch((error)=>{
             const errorCode=error.code;

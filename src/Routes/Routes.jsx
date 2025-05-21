@@ -12,6 +12,8 @@ import Signup from '../Components/Signup';
 import PrivateRoute from "../ContextProvider/PrivateRoute";
 import Spinner from "../Components/Spinner";
 import GroupDetails from "../Pages/GroupDetails";
+import Update from "../Pages/Update";
+import ErrorPage from "../Components/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +22,8 @@ export const router = createBrowserRouter([
     children:[
         {
             index:true,
+            hydrateFallbackElement: <Spinner></Spinner>,
+            loader: ()=> fetch('http://localhost:3000/groups'),
             Component:Home
         },
         {
@@ -32,12 +36,23 @@ export const router = createBrowserRouter([
             path:'/groups/:id',
             hydrateFallbackElement: <Spinner></Spinner>,
             loader: ({params})=> fetch(`http://localhost:3000/groups/${params.id}`),
-            Component:GroupDetails
+            element: <PrivateRoute>
+                <GroupDetails></GroupDetails>
+            </PrivateRoute>,
+           
         },
         {
             path:'/create-group',
             element: <PrivateRoute>
                 <CreateGroup></CreateGroup>
+            </PrivateRoute>
+        },
+        {
+            path:'/update-group/:id',
+            hydrateFallbackElement: <Spinner></Spinner>,
+            loader: ({params})=> fetch(`http://localhost:3000/groups/${params.id}`),
+            element: <PrivateRoute>
+                <Update></Update>
             </PrivateRoute>
         },
         {
@@ -54,6 +69,10 @@ export const router = createBrowserRouter([
             path:'/signup',
             Component:Signup
         },
+        {
+      path: "/*",
+      Component:ErrorPage
+    },
     ]
   },
 ]);

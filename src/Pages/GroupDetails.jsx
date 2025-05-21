@@ -27,6 +27,9 @@ const GroupDetails = () => {
   if (!group) {
     return <div>Group not found!</div>;
   }
+  const currentDate=new Date();
+  const groupStartDate= new Date(group?.startDate);
+  const isGroupActive=groupStartDate>currentDate;
 
   return (
     <div>
@@ -42,7 +45,9 @@ const GroupDetails = () => {
               Location: {group?.location}
             </a>
           </div>
-          <button className="btn btn-primary">Join Group</button>
+          {
+            isGroupActive? <button className="btn btn-primary">Join Group</button>:<p className="text-red-600 font-bold">This group is no longer active.</p>
+          }
         </div>
         <div className="space-y-4">
           <div className="space-y-2">

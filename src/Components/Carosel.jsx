@@ -1,8 +1,12 @@
 import React from 'react';
+import { Fade } from 'react-awesome-reveal';
+
 
 const Carosel = () => {
     return (
-        <div className='py-12'>
+      <Fade cascade damping={0.1}>
+        
+  <div className='py-12'>
             <div className="carousel w-full rounded-2xl">
   <div id="item1" className="carousel-item w-full">
     <img
@@ -33,6 +37,8 @@ const Carosel = () => {
   <a href="#item4" className="btn btn-xs">4</a>
 </div>
         </div>
+</Fade>
+        
     );
 };
 
