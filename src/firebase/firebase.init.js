@@ -1,16 +1,13 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// Firebase config from environment variables
 const firebaseConfig = {
-  apiKey: "AIzaSyCH5ZPOXPkD316BfkXn5ISR0c5Y05CafCs",
-  authDomain: "hobby-hub-ef096.firebaseapp.com",
-  projectId: "hobby-hub-ef096",
-  storageBucket: "hobby-hub-ef096.firebasestorage.app",
-  messagingSenderId: "612694425227",
-  appId: "1:612694425227:web:bde42c8cec69e57758de8e"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

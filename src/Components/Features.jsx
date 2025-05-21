@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SingleGroup from "./SingleGroup";
+import { Fade } from "react-awesome-reveal";
 
 const Features = ({ groups, setGroups }) => {
   console.log(groups);

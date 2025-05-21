@@ -1,12 +1,46 @@
-# React + Vite
+# HobbyHub: A Local Hobby Group Organizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+HobbyHub is a platform where people can discover and join local hobby-based groups (e.g., book clubs, hiking crews, painting circles) or create their own. It encourages social engagement through shared interests, helping people build communities around their passions.
 
-Currently, two official plugins are available:
+## Live Website
+[HobbyHub - Live](https://your-live-site-url.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Discover and Join Groups:** Browse and join ongoing hobby-based groups in your local area.
+- **Create Your Own Group:** Create a new hobby group with custom details (name, category, meeting location, etc.).
+- **Authentication:** Secure login and registration system using Firebase. Supports email/password authentication and Google/GitHub login.
+- **User Dashboard:** View and manage groups you’ve created or joined.
+- **Group Management:** Update and delete the groups you created.
+- **Responsive Design:** Fully responsive across devices (mobile, tablet, desktop).
+- **Dark/Light Mode Toggle:** Switch between dark and light modes for a personalized experience.
 
-## Expanding the ESLint configuration
+## Technologies Used
+- **Frontend:**
+  - React
+  - TailwindCSS
+  - React Router DOM
+  - Firebase Authentication
+  - Lottie React (for animations)
+  - React Simple Typewriter
+  - React Awesome Reveal
+  - React Tooltip
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Backend:**
+  - Node.js
+  - Express.js
+  - MongoDB (for data storage)
+  - Firebase (for authentication)
+
+## Getting Started
+
+### Prerequisites
+To run this project locally, make sure you have the following installed:
+- [Node.js](https://nodejs.org/) (>=12.0.0)
+- [MongoDB](https://www.mongodb.com/try/download/community) (for the server-side)
+- [Firebase](https://firebase.google.com/) account (for authentication)
+
+### Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/hobbyhub.git
+   cd hobbyhub
