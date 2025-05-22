@@ -19,7 +19,7 @@ const Update = () => {
 
   // Fetch group data when component mounts
   useEffect(() => {
-    fetch(`http://localhost:3000/groups/${id}`)
+    fetch(`https://hobby-hub-server-tau.vercel.app/groups/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -52,7 +52,7 @@ const Update = () => {
     };
 
     // Send updated data to the server using PUT method
-    fetch(`http://localhost:3000/groups/${id}`, {
+    fetch(`https://hobby-hub-server-tau.vercel.app/groups/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

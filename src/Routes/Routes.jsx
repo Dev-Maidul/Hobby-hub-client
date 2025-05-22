@@ -23,19 +23,19 @@ export const router = createBrowserRouter([
         {
             index:true,
             hydrateFallbackElement: <Spinner></Spinner>,
-            loader: ()=> fetch('http://localhost:3000/groups'),
+            loader: ()=> fetch('https://hobby-hub-server-tau.vercel.app/groups'),
             Component:Home
         },
         {
             path:'/all-groups',
             hydrateFallbackElement: <Spinner></Spinner>,
-            loader: ()=> fetch('http://localhost:3000/groups'),
+            loader: ()=> fetch('https://hobby-hub-server-tau.vercel.app/groups'),
             Component:AllGroup
         },
         {
             path:'/groups/:id',
             hydrateFallbackElement: <Spinner></Spinner>,
-            loader: ({params})=> fetch(`http://localhost:3000/groups/${params.id}`),
+            loader: ({params})=> fetch(`https://hobby-hub-server-tau.vercel.app/groups/${params.id}`),
             element: <PrivateRoute>
                 <GroupDetails></GroupDetails>
             </PrivateRoute>,
@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
         {
             path:'/update-group/:id',
             hydrateFallbackElement: <Spinner></Spinner>,
-            loader: ({params})=> fetch(`http://localhost:3000/groups/${params.id}`),
+            loader: ({params})=> fetch(`https://hobby-hub-server-tau.vercel.app/groups/${params.id}`),
             element: <PrivateRoute>
                 <Update></Update>
             </PrivateRoute>

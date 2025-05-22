@@ -3,7 +3,7 @@
 HobbyHub is a platform where people can discover and join local hobby-based groups (e.g., book clubs, hiking crews, painting circles) or create their own. It encourages social engagement through shared interests, helping people build communities around their passions.
 
 ## Live Website
-[HobbyHub - Live](https://your-live-site-url.com)
+[HobbyHub - Live](https://hobby-hubb.netlify.app/)
 
 ## Features
 - **Discover and Join Groups:** Browse and join ongoing hobby-based groups in your local area.
