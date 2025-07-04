@@ -8,8 +8,10 @@ import AuthProvider from './ContextProvider/AuthProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider>
+    <div className=''>
+      <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
+    </div>
   </StrictMode>,
 )

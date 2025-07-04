@@ -17,10 +17,10 @@ const Features = ({ groups, setGroups }) => {
   return (
     <Fade>
         <div className="py-8 bg-[#f3f4f6] p-12 rounded-2xl">
-        <h1 className="p-4 text-4xl font-semibold leading-none text-center">
+        <h1 className="p-4 text-4xl font-semibold leading-none text-center text-blue-600">
           Featured Groups !
         </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 py-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
         {displayGroups.map((group) => (
           <SingleGroup group={group} key={group?._id}></SingleGroup>
         ))}
