@@ -5,12 +5,13 @@ import FAQ from "../Components/FAQ";
 import { Fade } from "react-awesome-reveal";
 import { useLoaderData } from "react-router";
 import Features from "../Components/Features";
+import HowItWorks from "../Components/HowItWorks";
 const Home = () => {
   const initialGroup=useLoaderData();
   const [groups,setGroups]=useState(initialGroup);
     
   return (
-    <div>
+    <div className="">
       <Fade>
         <Carosel></Carosel>
         <Features 
@@ -18,6 +19,7 @@ const Home = () => {
         setGroups={setGroups}
         ></Features>
       <Testimonial></Testimonial>
+      <HowItWorks></HowItWorks>
       <FAQ></FAQ>
       </Fade>
       

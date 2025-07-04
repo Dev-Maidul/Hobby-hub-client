@@ -7,10 +7,12 @@ import { Fade } from "react-awesome-reveal";
 
 const MainLayout = () => {
   return (
-    <div className="w-10/12 mx-auto">
+    <div className="">
       <Fade>
         <Navbar></Navbar>
-        <Outlet></Outlet>
+        <div className="w-10/12 mx-auto">
+          <Outlet></Outlet>
+        </div>
         <Footer></Footer>
       </Fade>
     </div>

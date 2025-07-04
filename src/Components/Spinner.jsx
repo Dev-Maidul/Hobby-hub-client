@@ -1,15 +1,11 @@
-import React from "react";
+import React from 'react';
 
 const Spinner = () => {
-  return (
-    <div className="flex items-center justify-center max-h-screen">
-      <span className="loading loading-bars loading-xs"></span>
-      <span className="loading loading-bars loading-sm"></span>
-      <span className="loading loading-bars loading-md"></span>
-      <span className="loading loading-bars loading-lg"></span>
-      <span className="loading loading-bars loading-xl"></span>
-    </div>
-  );
+    return (
+        <div className='flex items-center justify-center min-h-screen'>
+            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
+        </div>
+    );
 };
 
 export default Spinner;
